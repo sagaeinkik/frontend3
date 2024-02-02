@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    overflow-x: hidden;
+}
+
+body {
+    max-width: 2000px;
+    width: 100%;
+    @extend .wrapper;
+}

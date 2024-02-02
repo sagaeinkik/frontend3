@@ -1,0 +1,6 @@
+@use 'base';
+
+body {
+    background-color: grey;
+    color: base.$blue;
+}
