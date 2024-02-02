@@ -1,6 +1,19 @@
 @use 'base';
 
 body {
-    background-color: grey;
-    color: base.$blue;
+    background-color: base.$lightmode-background;
+    font-family: base.$breadfont;
+}
+
+header {
+    width: 100%;
+
+    img {
+        width: 100%;
+    }
+}
+
+h1 {
+    font-family: base.$headingfont2;
+    letter-spacing: 1;
 }

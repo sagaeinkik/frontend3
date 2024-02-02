@@ -1,1 +1,12 @@
-$blue: blue;
+//Variabler
+$lightmode-background: #eef0e5;
+$darkmode-background: #212a3e;
+
+$breadfont: Inconsolata, arial, Helvetica, sans-serif;
+$headingfont1: Montserrat, Arial, Helvetica, sans-serif;
+$headingfont2: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+
+@mixin center() {
+    position: relative;
+    left: 50%;
+}

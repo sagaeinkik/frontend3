@@ -12,6 +12,7 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.11.0",
-    "parcel": "^2.11.0"
+    "parcel": "^2.11.0",
+    "sharp": "^0.31.3"
   }
 }
