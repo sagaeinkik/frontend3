@@ -17,32 +17,50 @@
 <body>
     <div class="wrapper">
         <header>
-            <!-- Herobild ljus -->
+            <!-- Herobild -->
             <picture>
-                <!-- Liten version -->
+                <!-- Ljus Liten version -->
                 <source media="(prefers-color-scheme: light) and (max-width: 899px)"
                     srcset="images/hero-light-mobile.png?as=avif&width=900" type="image/avif">
                 <source media="(prefers-color-scheme: light) and (max-width: 899px)"
+                    srcset="images/hero-light-mobile.png?as=webp&width=900" type="image/webp">
+                <source media="(prefers-color-scheme: light) and (max-width: 899px)"
                     srcset="images/hero-light-mobile.png?as=png&width=900" type="image/png">
-                <!-- Stor version -->
+                <!-- Ljus Stor version -->
                 <source media="(prefers-color-scheme: light) and (min-width: 900px)"
                     srcset="images/hero-light.png?as=avif&width=2000" type="image/avif">
                 <source media="(prefers-color-scheme: light) and (min-width: 900px)"
+                    srcset="images/hero-light.png?as=webp&width=2000" type="image/webp">
+                <source media="(prefers-color-scheme: light) and (min-width: 900px)"
                     srcset="images/hero-light.png?as=png&width=2000" type="image/png">
+                <!-- Mörk liten version -->
                 <source media="(prefers-color-scheme: dark) and (max-width: 899px)"
                     srcset="images/hero-dark-mobile.png?as=avif&width=900" type="image/avif">
                 <source media="(prefers-color-scheme: dark) and (max-width: 899px)"
+                    srcset="images/hero-dark-mobile.png?as=webp&width=900" type="image/webp">
+                <source media="(prefers-color-scheme: dark) and (max-width: 899px)"
                     srcset="images/hero-dark-mobile.png?as=png&width=900" type="image/png">
-                <!-- Stor version -->
+                <!-- Mörk stor version -->
                 <source media="(prefers-color-scheme: dark) and (min-width: 900px)"
                     srcset="images/hero-dark.png?as=avif&width=2000" type="image/avif">
                 <source media="(prefers-color-scheme: dark) and (min-width: 900px)"
+                    srcset="images/hero-dark.png?as=webp&width=2000" type="image/webp">
+                <source media="(prefers-color-scheme: dark) and (min-width: 900px)"
                     srcset="images/hero-dark.png?as=png&width=2000" type="image/png">
                 <img src="images/hero-light.png" alt="En islandshäst står på en kulle med ett stort berg bakom">
-                <!-- Herobild mörk -->
-                <!-- Liten version -->
-                <!--                 <img src="images/hero-dark.png" alt="En islandshäst skrittar på en kulle med ett stort berg bakom"> -->
             </picture>
+            <div class="header-flex">
+                <a href="index.html"><img src="images/logo/signature-black.svg" alt="Logotyp" id="logotyp"></a>
+                <nav class="desktop">
+                    <ul>
+                        <li><a href="index.html" aria-current="page">Start</a></li>
+                        <li><a href="#">Sass</a></li>
+                        <li><a href="#">Animering</a></li>
+                        <li><a href="#">Diagram</a></li>
+                        <li><a href="#">Karta</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
         <h1>Hej goddag</h1>
         <p>Här är det lite text och så </p>

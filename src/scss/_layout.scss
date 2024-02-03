@@ -7,13 +7,72 @@ body {
 
 header {
     width: 100%;
-
+    position: relative;
     img {
         width: 100%;
+    }
+    .header-flex {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        position: absolute;
+        top: 0;
+
+        img#logotyp {
+            max-width: 40%;
+            margin: 0.5em;
+        }
+    }
+    nav.desktop {
+        width: 56%;
+    }
+    ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5em 1em 0.5em 0.5em;
+        border-radius: 10px 0 0 10px;
+        @include base.transition();
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    }
+    li {
+        font-family: base.$accentfont;
+        a {
+            text-decoration: none;
+            color: base.$lightmode-background;
+            padding: 0.8em;
+            position: relative;
+            text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        a:after {
+            content: '';
+            width: 0%;
+            height: 3px;
+            background-color: base.$lightmode-background;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            @include base.transition();
+        }
+        a:hover:after {
+            width: 100%;
+        }
+        a[aria-current='page']:after {
+            content: '';
+            width: 100%;
+            height: 3px;
+            background-color: base.$lightmode-background;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
     }
 }
 
 h1 {
-    font-family: base.$headingfont2;
+    font-family: base.$headingfont;
     letter-spacing: 1;
 }

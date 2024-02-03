@@ -2,11 +2,17 @@
 $lightmode-background: #eef0e5;
 $darkmode-background: #212a3e;
 
-$breadfont: Inconsolata, arial, Helvetica, sans-serif;
-$headingfont1: Montserrat, Arial, Helvetica, sans-serif;
-$headingfont2: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+$breadfont: Montserrat, arial, Helvetica, sans-serif;
+$accentfont: Inconsolata, Arial, Helvetica, sans-serif;
+$headingfont: 'DM Serif Display', Georgia, 'Times New Roman', serif;
 
 @mixin center() {
     position: relative;
     left: 50%;
+}
+
+@mixin transition() {
+    transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
 }
