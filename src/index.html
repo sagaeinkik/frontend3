@@ -12,6 +12,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inconsolata&family=Montserrat:wght@400;600&display=swap"
         rel="stylesheet">
+    <!-- JS -->
+    <script src="js/burger.js" type="module"></script>
 </head>
 
 <body>
@@ -50,7 +52,9 @@
                 <img src="images/hero-light.png" alt="En islandshäst står på en kulle med ett stort berg bakom">
             </picture>
             <div class="header-flex">
-                <a href="index.html"><img src="images/logo/signature-black.svg" alt="Logotyp" id="logotyp"></a>
+                <a href="index.html">
+                    <img src="images/logo/signature-black.svg" alt="Logotyp" id="logotyp">
+                </a>
                 <nav class="desktop">
                     <ul>
                         <li><a href="index.html" aria-current="page">Start</a></li>
@@ -60,6 +64,22 @@
                         <li><a href="#">Karta</a></li>
                     </ul>
                 </nav>
+                <div class="mobile-menu">
+                    <button class="burger-button" aria-label="menyknapp">
+                        <span class="burger-bar"></span>
+                        <span class="burger-bar"></span>
+                        <span class="burger-bar"></span>
+                    </button>
+                    <nav class="mobile-menu-items">
+                        <ul>
+                            <li><a href="index.html" aria-current="page">Start</a></li>
+                            <li><a href="#">Sass</a></li>
+                            <li><a href="#">Animering</a></li>
+                            <li><a href="#">Diagram</a></li>
+                            <li><a href="#">Karta</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </header>
         <h1>Hej goddag</h1>

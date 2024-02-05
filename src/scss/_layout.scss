@@ -21,53 +21,121 @@ header {
         img#logotyp {
             max-width: 40%;
             margin: 0.5em;
+            position: relative;
+            z-index: 1;
         }
     }
     nav.desktop {
         width: 56%;
-    }
-    ul {
-        list-style-type: none;
-        display: flex;
-        justify-content: space-between;
-        padding: 0.5em 1em 0.5em 0.5em;
-        border-radius: 10px 0 0 10px;
-        @include base.transition();
-
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.2);
-        }
-    }
-    li {
-        font-family: base.$accentfont;
-        a {
-            text-decoration: none;
-            color: base.$lightmode-background;
-            padding: 0.8em;
-            position: relative;
-            text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
-        }
-        a:after {
-            content: '';
-            width: 0%;
-            height: 3px;
-            background-color: base.$lightmode-background;
-            position: absolute;
-            bottom: 0;
-            left: 0;
+        ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5em 1em 0.5em 0.5em;
+            border-radius: 10px 0 0 10px;
             @include base.transition();
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.2);
+            }
         }
-        a:hover:after {
-            width: 100%;
+        li {
+            font-family: base.$accentfont;
+            a {
+                text-decoration: none;
+                color: base.$lightmode-background;
+                padding: 0.8em;
+                position: relative;
+                text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+            }
+            a:after {
+                content: '';
+                width: 0%;
+                height: 3px;
+                background-color: base.$lightmode-background;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                @include base.transition();
+            }
+            a:hover:after {
+                width: 100%;
+            }
+            a[aria-current='page']:after {
+                content: '';
+                width: 100%;
+                height: 3px;
+                background-color: base.$lightmode-background;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
         }
-        a[aria-current='page']:after {
-            content: '';
-            width: 100%;
+    }
+    div.mobile-menu {
+        display: none;
+        .burger-button {
+            border: none;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0);
+            position: relative;
+            top: 1.5em;
+            right: 2em;
+            z-index: 2;
+        }
+        .burger-bar {
+            display: block;
+            width: 40px;
             height: 3px;
-            background-color: base.$lightmode-background;
-            position: absolute;
-            bottom: 0;
+            margin: 5px;
+            background-color: black;
+            @include base.transition;
+        }
+
+        .burger-button.active .burger-bar {
+            background-color: base.$lightmode-green;
+        }
+        .burger-button.active .burger-bar:first-child {
+            transform: translateY(8px) rotate(225deg);
+        }
+        .burger-button.active .burger-bar:nth-child(2) {
+            opacity: 0;
+        }
+        .burger-button.active .burger-bar:last-child {
+            transform: translateY(-8px) rotate(-225deg);
+        }
+        nav.mobile-menu-items {
+            height: fit-content;
+            width: 100%;
+            border-radius: 0 0 50% 50%;
+            position: fixed;
             left: 0;
+            top: -505%;
+            background-color: base.$lightmode-background;
+            @include base.transition;
+        }
+        nav.mobile-menu-items.active {
+            top: 0;
+            ul {
+                margin: 5em 50%;
+            }
+            li {
+                margin-top: 3em;
+            }
+            a {
+                color: base.$lightmode-green;
+                position: relative;
+                padding: 0.5em 0;
+            }
+            a[aria-current='page']:after {
+                content: '';
+                width: 100%;
+                height: 3px;
+                background-color: base.$lightmode-green;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
         }
     }
 }

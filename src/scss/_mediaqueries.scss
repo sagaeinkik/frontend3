@@ -1,0 +1,36 @@
+@use 'base';
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: base.$darkmode-background;
+        color: base.$darkmode-text;
+    }
+
+    header {
+        div.mobile-menu nav.mobile-menu-items {
+            background-color: base.$darkmode-background;
+        }
+        div.mobile-menu nav.mobile-menu-items.active a {
+            color: base.$darkmode-text;
+        }
+        div.mobile-menu
+            nav.mobile-menu-items.active
+            a[aria-current='page']:after {
+            background-color: base.$darkmode-text;
+        }
+        div.mobile-menu .burger-button.active .burger-bar {
+            background-color: base.$darkmode-text;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    header {
+        nav.desktop {
+            display: none;
+        }
+        div.mobile-menu {
+            display: block;
+        }
+    }
+}
