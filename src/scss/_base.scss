@@ -4,15 +4,27 @@ $lightmode-green: #3a4d39;
 
 $darkmode-background: #10141e;
 $darkmode-text: #b7d6e7;
-$darkmode-mid: #394867;
+$darkmode-mid: #66779b;
 
 $breadfont: Montserrat, arial, Helvetica, sans-serif;
 $accentfont: Inconsolata, Arial, Helvetica, sans-serif;
 $headingfont: 'DM Serif Display', Georgia, 'Times New Roman', serif;
 
-@mixin center() {
-    position: relative;
-    left: 50%;
+@mixin center($horizontal, $vertical) {
+    @if $horizontal and $vertical {
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    } @else if $vertical {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    } @else if $horizontal {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 @mixin transition() {

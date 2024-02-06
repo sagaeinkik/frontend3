@@ -7,6 +7,12 @@
     }
 
     header {
+        div.mobile-menu .burger-button:hover {
+            .burger-bar {
+                background-color: base.$darkmode-mid;
+            }
+        }
+
         div.mobile-menu nav.mobile-menu-items {
             background-color: darken(base.$darkmode-mid, 15%);
         }
@@ -22,6 +28,17 @@
             background-color: base.$darkmode-text;
         }
     }
+    main h1 {
+        color: base.$darkmode-text;
+    }
+    .icons .icon-container svg {
+        fill: base.$darkmode-mid;
+        @include base.transition;
+
+        &:hover {
+            fill: base.$darkmode-text;
+        }
+    }
 }
 
 @media (max-width: 900px) {
@@ -31,6 +48,17 @@
         }
         div.mobile-menu {
             display: block;
+        }
+    }
+    main {
+        width: 90%;
+        img {
+            border-radius: 30px;
+            width: 100%;
+
+            &:hover {
+                @extend img;
+            }
         }
     }
 }

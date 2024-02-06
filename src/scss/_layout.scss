@@ -39,8 +39,9 @@ header {
                 background-color: rgba(0, 0, 0, 0.2);
             }
         }
-        li {
+        .desktop-menu-item {
             font-family: base.$accentfont;
+            font-size: 1.1em;
             a {
                 text-decoration: none;
                 color: base.$lightmode-background;
@@ -74,7 +75,6 @@ header {
     }
     div.mobile-menu {
         display: none;
-        font-family: base.$accentfont;
         .burger-button {
             border: none;
             cursor: pointer;
@@ -114,6 +114,11 @@ header {
             top: -505%;
             background-color: base.$lightmode-background;
             @include base.transition;
+
+            .mobile-menu-item {
+                font-family: base.$accentfont;
+                font-size: 1.1em;
+            }
         }
         nav.mobile-menu-items.active {
             top: 0;
@@ -144,4 +149,56 @@ header {
 h1 {
     font-family: base.$headingfont;
     letter-spacing: 1;
+    color: base.$lightmode-green;
+}
+
+main {
+    padding: 1em 0;
+
+    img {
+        width: 80%;
+        max-width: 1500px;
+        margin: 1.5em auto;
+        border-radius: 150px;
+        @include base.center(true, false); //horizontal, vertical
+        opacity: 0.8;
+        @include base.transition();
+
+        &:hover {
+            border-radius: 50px;
+        }
+    }
+}
+
+.icons {
+    width: 100%;
+    margin: 1.5em auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    .icon-container {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+            'svg'
+            'info';
+
+        svg {
+            grid-area: svg;
+            fill: base.$lightmode-green;
+            width: 30%;
+        }
+
+        p {
+            grid-area: info;
+            text-align: center;
+            font-family: base.$accentfont;
+        }
+    }
+    .svgrepo {
+        @include base.center(true, false);
+    }
+    .reshot {
+        margin: auto;
+    }
 }

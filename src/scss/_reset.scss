@@ -1,3 +1,6 @@
+/* Här petar jag in allmänna regler som jag nästan alltid sätter, och inte ändrar på förutom i media queries. 
+Det är kanske ett missvisande namn för det är ingen full reset eller normalisering. */
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +16,7 @@ body {
     width: 100%;
     margin: auto;
     @extend .wrapper;
-    line-height: 1.5;
+    line-height: 1.8;
 }
 
 nav ul li {
@@ -22,4 +25,19 @@ nav ul li {
     a {
         text-decoration: none;
     }
+}
+div.text-content {
+    width: fit-content;
+    margin: auto;
+    p {
+        max-width: 35em;
+    }
+    p:not(.no-top-margin) {
+        margin-top: 2em;
+    }
+}
+
+main {
+    width: 70%;
+    margin: auto;
 }

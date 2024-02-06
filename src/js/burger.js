@@ -2,7 +2,7 @@
 //Variabler
 const burgerButton = document.querySelector('.burger-button'); //Själva burgarknappen
 const mobileMenu = document.querySelector('.mobile-menu-items'); //Själva ul-elementet med menyns innehåll
-const mobileNav = document.querySelector('div.mobile-menu');
+const mobileNav = document.querySelector('div.mobile-menu'); //Hela wrappern för menyn
 
 //Vid klick på knappen, toggla klass active på meny och knapp
 burgerButton.addEventListener('click', () => {
