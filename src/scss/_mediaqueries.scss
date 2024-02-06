@@ -8,7 +8,7 @@
 
     header {
         div.mobile-menu nav.mobile-menu-items {
-            background-color: base.$darkmode-background;
+            background-color: darken(base.$darkmode-mid, 15%);
         }
         div.mobile-menu nav.mobile-menu-items.active a {
             color: base.$darkmode-text;
