@@ -5,7 +5,26 @@
         background-color: base.$darkmode-background;
         color: base.$darkmode-text;
     }
+    .wrapper.underpage {
+        header div.mobile-menu .burger-button .burger-bar {
+            background-color: base.$darkmode-mid;
+        }
+        header nav.desktop .desktop-menu-item a {
+            color: base.$darkmode-mid;
+            @include base.transition;
 
+            &:hover {
+                color: base.$darkmode-text;
+
+                &:after {
+                    background-color: base.$darkmode-text;
+                }
+            }
+            &:after {
+                background-color: base.$darkmode-mid;
+            }
+        }
+    }
     header {
         div.mobile-menu .burger-button:hover {
             .burger-bar {
@@ -14,7 +33,7 @@
         }
 
         div.mobile-menu nav.mobile-menu-items {
-            background-color: darken(base.$darkmode-mid, 15%);
+            background-color: darken(base.$darkmode-mid, 28%);
         }
         div.mobile-menu nav.mobile-menu-items.active a {
             color: base.$darkmode-text;
@@ -28,7 +47,8 @@
             background-color: base.$darkmode-text;
         }
     }
-    main h1 {
+    main h1,
+    blockquote {
         color: base.$darkmode-text;
     }
     .icons .icon-container svg {
@@ -37,6 +57,30 @@
 
         &:hover {
             fill: base.$darkmode-text;
+        }
+    }
+    footer {
+        background-color: base.$darkmode-footer-bg;
+
+        p {
+            color: black;
+        }
+    }
+}
+
+@media (max-width: 1450px) {
+    .icons {
+        grid-template-columns: 1fr 1fr;
+
+        .icon-container {
+            margin-bottom: 1.5em;
+        }
+        .icon-container svg {
+            width: 20%;
+        }
+        .icon-container p {
+            max-width: 50%;
+            margin: auto;
         }
     }
 }
@@ -60,5 +104,36 @@
                 @extend img;
             }
         }
+    }
+    .icons .icon-container p {
+        font-size: 70%;
+    }
+}
+
+@media (max-width: 550px) {
+    .icons .icon-container svg {
+        width: 30%;
+    }
+    header div.mobile-menu nav.mobile-menu-items.active ul {
+        margin: 4em 40%;
+    }
+    main blockquote {
+        max-width: 100%;
+        font-size: 1.5em;
+    }
+    footer {
+        padding: 1em;
+    }
+}
+
+@media (max-width: 370px) {
+    body {
+        font-size: 0.8em;
+    }
+    .icons .svgrepo {
+        @include base.center(true, true);
+    }
+    .icons .icon-container p {
+        max-width: 100%;
     }
 }

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sass | Frontend</title>
+    <link rel="stylesheet" href="scss/main.scss">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inconsolata&family=Montserrat:wght@400;600&display=swap"
+        rel="stylesheet">
+    <!-- JS -->
+    <script src="js/burger.js" type="module"></script>
+</head>
+
+<body>
+    <div class="wrapper underpage">
+        <header>
+            <div class="header-flex">
+                <a href="index.html">
+                    <picture>
+                        <source media="(prefers-color-scheme: light)" srcset="images/logo/signature-black.svg"
+                            type="image/svg+xml">
+                        <source media="(prefers-color-scheme: dark)" srcset="images/logo/signature-light.svg"
+                            type="image/svg+xml">
+                        <img src="images/logo/signature-light.svg" alt="Logotyp" id="logotyp">
+                    </picture>
+                </a>
+                <nav class="desktop">
+                    <ul>
+                        <li class="desktop-menu-item"><a href="index.html">Start</a></li>
+                        <li class="desktop-menu-item"><a href="sass.html" aria-current="page">Sass</a></li>
+                        <li class="desktop-menu-item"><a href="#">Animering</a></li>
+                        <li class="desktop-menu-item"><a href="#">Diagram</a></li>
+                        <li class="desktop-menu-item"><a href="#">Karta</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu">
+                    <button class="burger-button" aria-label="menyknapp">
+                        <span class="burger-bar"></span>
+                        <span class="burger-bar"></span>
+                        <span class="burger-bar"></span>
+                    </button>
+                    <nav class="mobile-menu-items">
+                        <ul>
+                            <li class="mobile-menu-item"><a href="index.html">Start</a></li>
+                            <li class="mobile-menu-item"><a href="sass.html" aria-current="page">Sass</a></li>
+                            <li class="mobile-menu-item"><a href="#">Animering</a></li>
+                            <li class="mobile-menu-item"><a href="#">Diagram</a></li>
+                            <li class="mobile-menu-item"><a href="#">Karta</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main class="underpage-main">
+            <div class="text-content">
+                <h1>Moment 3 &ndash; Preprocessorer (Sass)</h1>
+                <p class="no-top-margin">
+                    Jag har redan använt Sass litegrann, åtminstone så mycket att jag är bekant med nesting och inte
+                    hade så svårt att komma igång. Men jag har aldrig använt partials eller if/else, och mixins och
+                    extend bara någon enstaka gång.
+                </p>
+                <p>Det finns ju många fördelar med Sass. Personligen är jag förtjust i nestingen, smidigare variabler
+                    än rena css-variabler, och smidigheten i att kunna använda &: inuti en selektor för att bygga vidare
+                    på den. Det är också skönt att parcel låter en länka in scss rakt i html så man slipper sass
+                    --watch.
+                </p>
+            </div>
+            <picture>
+                <!-- Stor -->
+                <source media="(min-width: 900px)" srcset="images/sasspic.jpg?as=avif" type="image/avif">
+                <source media="(min-width: 900px)" srcset="images/sasspic.jpg?as=webp" type="image/webp">
+                <source media="(min-width: 900px)" srcset="images/sasspic.jpg?as=jpg" type="image/jpg">
+                <!-- Liten -->
+                <source media="(max-width: 899px)" srcset="images/sasspic.jpg?as=avif&width=600" type="image/avif">
+                <source media="(max-width: 899px)" srcset="images/sasspic.jpg?as=webp&width=600" type="image/webp">
+                <source media="(max-width: 899px)" srcset="images/sasspic.jpg?as=jpg&width=600" type="image/jpg">
+                <img src="images/sasspic.jpg" alt="Bild på kod">
+            </picture>
+            <div class="text-content">
+                <p>Något jag störde mig på är att extend inte tillåter mer än ett ord i selektorn. Om jag till exempel
+                    ville nå nav.desktop li gick inte det. Jag försökte
+                    lösa det genom att sätta klasser på varje list item, men det hände ingenting när jag försökte
+                    extenda då. <br>
+                    Därför finns det gott om tillfällen i min kod där man hade önskat sig en extend, men jag försökte
+                    faktiskt och fick inte till det.</p>
+                <p> If/else föll sig inte så naturligt att peta in i koden. Nu fick jag skapa tillfälle.</p>
+                <p> Jag känner inte att det har gått så bra. Jag tycker att jag har gjort ett rätt bedrövligt jobb med
+                    strukturen i mina partials, och jag har
+                    nestat
+                    alldeles för mycket på sina ställen också. Jag fattar nog inte allt helt.
+                </p>
+            </div>
+        </main>
+    </div>
+    <picture>
+        <!-- Ljust tema -->
+        <source media="(prefers-color-scheme: light)" srcset="images/footerborder.png?as=avif&width=2000"
+            type="image/avif">
+        <source media="(prefers-color-scheme: light)" srcset="images/footerborder.png?as=webp&width=2000"
+            type="image/webp">
+        <source media="(prefers-color-scheme: light)" srcset="images/footerborder.png?as=png&width=2000"
+            type="image/png">
+        <!-- Mörkt tema -->
+        <source media="(prefers-color-scheme: dark)" srcset="images/footerborder-darkmode.png?as=avif&width=2000"
+            type="image/avif">
+        <source media="(prefers-color-scheme: dark)" srcset="images/footerborder-darkmode.png?as=webp&width=2000"
+            type="image/webp">
+        <source media="(prefers-color-scheme: dark)" srcset="images/footerborder-darkmode.png?as=png&width=2000"
+            type="image/png">
+        <img src="images/footerborder-darkmode.png" alt="" id="footerimg">
+    </picture>
+    <footer>
+        <p>Av Saga Einarsdotter Kikajon för kursen DT211G, Frontend-baserad Webbutveckling.</p>
+        <p>Bilder är tagna från <a href="https://www.pixabay.com" target="_blank">Pixabay</a>, ikoner från <a
+                href="https://www.reshot.com" target="_blank">Reshot</a> och <a href="https://www.svgrepo.com"
+                target="_blank">SVG Repo</a>.</p>
+        <img src="images/logo/signature-black.svg" alt="logotyp">
+    </footer>
+</body>
+
+</html>
