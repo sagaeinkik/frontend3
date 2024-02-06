@@ -24,6 +24,7 @@ header {
         /* Specifikt för landing page: */
         img#logotyp {
             max-width: 40%;
+            width: 200px; /* Måste tydligen ha detta för Firefoxs skull */
             margin: 0.5em;
             position: relative;
             z-index: 1;
