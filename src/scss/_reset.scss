@@ -1,12 +1,14 @@
 /* Här petar jag in allmänna regler som jag nästan alltid sätter, och inte ändrar på förutom i media queries. 
 Det är kanske ett missvisande namn för det är ingen full reset eller normalisering. */
 
+/* Nollställ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Se till overflow */
 .wrapper {
     overflow-x: hidden;
 }
@@ -19,13 +21,17 @@ body {
     line-height: 1.8;
 }
 
+/* Ta bort understrykning från alla länkar */
 a {
     text-decoration: none;
 }
 
+/* Ta bort alla listpunkter */
 nav ul li {
     list-style: none;
 }
+
+/* Sätt maxbredd på allt textinnehåll  */
 div.text-content {
     width: fit-content;
     margin: auto;
@@ -37,6 +43,7 @@ div.text-content {
     }
 }
 
+/* Allmänn bredd på main, centrera */
 main {
     width: 70%;
     margin: auto;

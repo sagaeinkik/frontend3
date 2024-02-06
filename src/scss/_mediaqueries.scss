@@ -1,14 +1,20 @@
 @use 'base';
 
+/* DARK MODE */
 @media (prefers-color-scheme: dark) {
     body {
+        /* Ändra bakgrundsfärg */
         background-color: base.$darkmode-background;
         color: base.$darkmode-text;
     }
+
+    /* UNDERSIDORNAS REGLER */
     .wrapper.underpage {
+        /* Ändra färg på hamburgaren så den syns */
         header div.mobile-menu .burger-button .burger-bar {
             background-color: base.$darkmode-mid;
         }
+        /* Ändra färg på länkarna i menyn samt indikeringen för hovring och statisk indikering på vart man befinner sig på sidan */
         header nav.desktop .desktop-menu-item a {
             color: base.$darkmode-mid;
             @include base.transition;
@@ -25,32 +31,40 @@
             }
         }
     }
+
+    /* Gör lite hovereffekt på hamburgaren på landing page  */
     header {
         div.mobile-menu .burger-button:hover {
             .burger-bar {
                 background-color: base.$darkmode-mid;
             }
         }
-
+        /* Mörka bakgrundsfärgen på menyn */
         div.mobile-menu nav.mobile-menu-items {
             background-color: darken(base.$darkmode-mid, 28%);
         }
+        /* Ändra textfärg på länkarna i menyn */
         div.mobile-menu nav.mobile-menu-items.active a {
             color: base.$darkmode-text;
         }
+        /* Ändra bakgrundsfärg på strecket under nuvarande sida när menyn är utfälld  */
         div.mobile-menu
             nav.mobile-menu-items.active
             a[aria-current='page']:after {
             background-color: base.$darkmode-text;
         }
+        /* Ändra färg på burgarstrecken när menyn är utfälld */
         div.mobile-menu .burger-button.active .burger-bar {
             background-color: base.$darkmode-text;
         }
     }
+    /* Ändra färg på h1 och citat */
     main h1,
     blockquote {
         color: base.$darkmode-text;
     }
+
+    /* Ändra färgen på ikonerna, ge hovereffekt som är lite ljusare färg */
     .icons .icon-container svg {
         fill: base.$darkmode-mid;
         @include base.transition;
@@ -59,6 +73,8 @@
             fill: base.$darkmode-text;
         }
     }
+
+    /* Ändra bakgrundsfärg på footer och textfärg */
     footer {
         background-color: base.$darkmode-footer-bg;
 
@@ -68,6 +84,9 @@
     }
 }
 
+/* BREDDER */
+
+/* Fixa ikonernas storlek; byt grid till 2x2, gör ikonerna mindre, bryt texten */
 @media (max-width: 1450px) {
     .icons {
         grid-template-columns: 1fr 1fr;
@@ -85,6 +104,7 @@
     }
 }
 
+/* Byt meny från desktop till hamburgare */
 @media (max-width: 900px) {
     header {
         nav.desktop {
@@ -94,6 +114,7 @@
             display: block;
         }
     }
+    /* Bredda main lite också */
     main {
         width: 90%;
         img {
@@ -101,6 +122,7 @@
             width: 100%;
 
             &:hover {
+                /* Ta bort border-radius-effekten */
                 @extend img;
             }
         }
@@ -110,6 +132,7 @@
     }
 }
 
+/* Justera ikonerna ytterligare; minska texten, centrera länkarna i hamburgermenyn */
 @media (max-width: 550px) {
     .icons .icon-container svg {
         width: 30%;
@@ -126,12 +149,10 @@
     }
 }
 
+/* Minska texten för mobil på hela sidan, ge ikontexten fullbredd  */
 @media (max-width: 370px) {
     body {
         font-size: 0.8em;
-    }
-    .icons .svgrepo {
-        @include base.center(true, true);
     }
     .icons .icon-container p {
         max-width: 100%;

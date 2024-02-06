@@ -1,10 +1,14 @@
 @use 'base';
 
+/* Den här kanske man borde dela upp i flera partials istället */
+
+/* Utgår från lightmode. Darkmode kommer i en media query */
 body {
     background-color: base.$lightmode-background;
     font-family: base.$breadfont;
 }
 
+/* HEADER */
 header {
     width: 100%;
     position: relative;
@@ -17,7 +21,7 @@ header {
         justify-content: space-between;
         position: absolute;
         top: 0;
-
+        /* Specifikt för landing page: */
         img#logotyp {
             max-width: 40%;
             margin: 0.5em;
@@ -25,9 +29,12 @@ header {
             z-index: 1;
         }
     }
+    /* DESKTOP-NAVIGERING */
     nav.desktop {
         width: 56%;
+
         ul {
+            /* Lista ska också bli flex så den kan spridas ut lite, som en menyrad*/
             list-style-type: none;
             display: flex;
             justify-content: space-between;
@@ -36,20 +43,24 @@ header {
             @include base.transition();
 
             &:hover {
+                /* Gör hover-effekt där menyraden får mörkare bakgrund */
                 background-color: rgba(0, 0, 0, 0.2);
             }
         }
         .desktop-menu-item {
+            /* Själva li */
             font-family: base.$accentfont;
             font-size: 1.1em;
             a {
+                /* Länkarna i list items */
                 text-decoration: none;
                 color: base.$lightmode-background;
                 padding: 0.8em;
-                position: relative;
+                position: relative; /* För att strecken under ska ha pos: absolute */
                 text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
             }
             a:after {
+                /* Gör streck under länkarna */
                 content: '';
                 width: 0%;
                 height: 3px;
@@ -60,9 +71,11 @@ header {
                 @include base.transition();
             }
             a:hover:after {
+                /* Visa strecket vid hover */
                 width: 100%;
             }
             a[aria-current='page']:after {
+                /* Statiskt streck under den länk som hör till sidan man befinner sig på */
                 content: '';
                 width: 100%;
                 height: 3px;
@@ -73,9 +86,12 @@ header {
             }
         }
     }
+    /* MOBILMENY */
     div.mobile-menu {
+        /* Dölj i desktopläge */
         display: none;
         .burger-button {
+            /* Själva knappen som omger burger bars */
             border: none;
             cursor: pointer;
             background-color: rgba(0, 0, 0, 0);
@@ -85,6 +101,7 @@ header {
             z-index: 2;
         }
         .burger-bar {
+            /* Själva brödet och köttet */
             display: block;
             width: 40px;
             height: 3px;
@@ -93,9 +110,11 @@ header {
             @include base.transition;
         }
 
+        /* AKTIV HAMBURGARE */
         .burger-button.active .burger-bar {
             background-color: base.$lightmode-green;
         }
+        /* Rotera första och tredje, dölj mittersta */
         .burger-button.active .burger-bar:first-child {
             transform: translateY(8px) rotate(225deg);
         }
@@ -105,6 +124,7 @@ header {
         .burger-button.active .burger-bar:last-child {
             transform: translateY(-8px) rotate(-225deg);
         }
+        /* Ul-element får regler och skickas ut till höger för att döljas när den är inaktiv */
         nav.mobile-menu-items {
             height: fit-content;
             width: 100%;
@@ -120,6 +140,7 @@ header {
                 font-size: 1.1em;
             }
         }
+        /* Visas när den är aktiv */
         nav.mobile-menu-items.active {
             top: 0;
             ul {
@@ -134,6 +155,7 @@ header {
                 padding: 0.5em 0;
             }
             a[aria-current='page']:after {
+                /* Statiskt streck under nuvarande sida  */
                 content: '';
                 width: 100%;
                 height: 3px;
@@ -152,10 +174,12 @@ h1 {
     color: base.$lightmode-green;
 }
 
+/* LANDING PAGE MAIN */
 main {
     padding: 1em 0;
 
     img {
+        /* Sätt bredd, centrera både horisontellt och vertikalt, sänk opacity och gör transition på border radius vid hover */
         width: 80%;
         max-width: 1500px;
         margin: 1.5em auto;
@@ -172,6 +196,7 @@ main {
 
 /* Undersidor  */
 .wrapper.underpage {
+    /* Ändra färgerna på menylänkarna då det inte finns en headerbild på undersidorna */
     header nav.desktop .desktop-menu-item a {
         color: base.$lightmode-green;
 
@@ -180,11 +205,14 @@ main {
         }
     }
     h1 {
+        /* Putta ner h1 så den kommer nedanför meny*/
         margin-top: 5em;
     }
 }
 
+/* IKONER på landing page */
 .icons {
+    /* Gör omslutande div till grid container, fördela jämnt */
     width: 100%;
     margin: 2em auto;
     display: grid;
@@ -192,6 +220,7 @@ main {
     grid-column-gap: 1em;
 
     .icon-container {
+        /* Gör varje individuell div för ikon + text till grid container */
         display: grid;
         grid-template-rows: 1fr 1fr;
         grid-gap: 1em;
@@ -200,30 +229,29 @@ main {
             'info';
 
         svg {
+            /* Ändra färg på svg  och centrera */
             grid-area: svg;
             fill: base.$lightmode-green;
             width: 30%;
+            margin: auto;
             @include base.transition;
 
             &:hover {
+                /* Ljusa upp den när man hovrar */
                 fill: lighten(base.$lightmode-green, 20%);
             }
         }
 
         p {
+            /* Centrera text */
             grid-area: info;
             text-align: center;
             font-family: base.$accentfont;
         }
     }
-    .svgrepo {
-        @include base.center(true, false);
-    }
-    .reshot {
-        margin: auto;
-    }
 }
 
+/* Slutcitatet på landing page */
 blockquote {
     @extend h1;
     font-size: 1.8em;
@@ -232,14 +260,16 @@ blockquote {
     font-style: italic;
 }
 
+/* Border-bilden inför footern (träden) */
 #footerimg {
     width: 100%;
     display: block;
 }
 
+/* FOOTER */
 footer {
     background-color: base.$lightmode-footer-bg;
-
+    /* Text  */
     p {
         color: base.$lightmode-background;
         width: fit-content;
@@ -247,10 +277,12 @@ footer {
         padding-bottom: 1em;
     }
     a {
+        /* Länk till pixabay, svgrepo och reshot */
         color: #ffffff;
         text-decoration: dotted underline 2px;
     }
     img {
+        /* Lilla signaturen */
         max-width: 180px;
         width: 20%;
         @include base.center(true, false);
