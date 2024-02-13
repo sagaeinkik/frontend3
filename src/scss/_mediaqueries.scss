@@ -24,7 +24,7 @@
         /* Ändra färg på länkarna i menyn samt indikeringen för hovring och statisk indikering på vart man befinner sig på sidan */
         header nav.desktop .desktop-menu-item a {
             color: base.$darkmode-mid;
-            @include base.transition(0.5s);
+            @include base.transition;
 
             &:hover {
                 color: base.$darkmode-text;
@@ -37,6 +37,7 @@
                 background-color: base.$darkmode-mid;
             }
         }
+        /* Lite regler för knappar och hästikoner */
         div.horsetransition button {
             background-color: base.$darkmode-mid;
 
@@ -56,6 +57,9 @@
             .burger-bar {
                 background-color: base.$darkmode-mid;
             }
+        }
+        div.mobile-menu .burger-button.active:hover .burger-bar {
+            background-color: base.$darkmode-mid;
         }
         /* Mörka bakgrundsfärgen på menyn */
         div.mobile-menu nav.mobile-menu-items {
@@ -86,7 +90,7 @@
     .icons .icon-container svg,
     .wrapper.underpage div.horseanimation svg {
         fill: base.$darkmode-mid;
-        @include base.transition(0.5s);
+        @include base.transition;
 
         &:hover {
             fill: base.$darkmode-text;
@@ -158,6 +162,9 @@
     }
     header div.mobile-menu nav.mobile-menu-items.active ul {
         margin: 4em 40%;
+    }
+    .wrapper.underpage div.horseanimation {
+        width: 80%;
     }
     main blockquote {
         max-width: 100%;

@@ -1,5 +1,5 @@
 @use 'base';
-@use 'animations';
+@use 'keyframes';
 
 /* Den här kanske man borde dela upp i flera partials istället */
 
@@ -42,7 +42,7 @@ header {
             justify-content: space-between;
             padding: 0.5em 1em 0.5em 0.5em;
             border-radius: 10px 0 0 10px;
-            @include base.transition(0.5s);
+            @include base.transition;
 
             &:hover {
                 /* Gör hover-effekt där menyraden får mörkare bakgrund */
@@ -70,7 +70,7 @@ header {
                 position: absolute;
                 bottom: 0;
                 left: 0;
-                @include base.transition(0.5s);
+                @include base.transition;
             }
             a:hover:after {
                 /* Visa strecket vid hover */
@@ -113,7 +113,7 @@ header {
             height: 3px;
             margin: 5px;
             background-color: black;
-            @include base.transition(0.5s);
+            @include base.transition;
         }
 
         /* AKTIV HAMBURGARE */
@@ -139,11 +139,10 @@ header {
             width: 100%;
             border-radius: 0 0 50% 50%;
             position: fixed;
-            z-index: 1;
             left: 0;
             top: -505%;
             background-color: base.$lightmode-background;
-            @include base.transition(0.5s);
+            @include base.transition;
 
             .mobile-menu-item {
                 font-family: base.$accentfont;
@@ -152,6 +151,7 @@ header {
         }
         /* Visas när den är aktiv */
         nav.mobile-menu-items.active {
+            z-index: 1;
             top: 0;
             ul {
                 margin: 5em 50%;
@@ -196,7 +196,7 @@ main {
         border-radius: 150px;
         @include base.center(true, false); //horizontal, vertical
         opacity: 0.8;
-        @include base.transition(0.5s);
+        @include base.transition;
 
         &:hover {
             border-radius: 50px;
@@ -219,12 +219,15 @@ main {
         margin-top: 5em;
     }
 
-    div.horseanimation svg {
-        width: 13%;
-        fill: base.$lightmode-green;
-        margin-top: 4em;
-        animation: horse 7s linear infinite;
-        position: relative;
+    div.horseanimation {
+        width: 90%;
+        svg {
+            width: 13%;
+            fill: base.$lightmode-green;
+            margin-top: 4em;
+            animation: horse 7s linear infinite;
+            position: relative;
+        }
     }
 
     div.fadein {
@@ -239,7 +242,7 @@ main {
             background-color: base.$lightmode-green;
             color: white;
             border-radius: 5px;
-            @include base.transition(1s);
+            @include base.transition;
             @include base.center(true, false);
             display: block;
             cursor: pointer;
@@ -251,7 +254,7 @@ main {
         svg {
             margin-top: 1em;
             width: 20%;
-            @include base.transition(0.7s);
+            @include base.transition;
             @include base.center(true, false);
 
             &:hover {
@@ -292,7 +295,7 @@ main {
             fill: base.$lightmode-green;
             width: 30%;
             margin: auto;
-            @include base.transition(0.5s);
+            @include base.transition;
 
             &:hover {
                 /* Ljusa upp den när man hovrar */
