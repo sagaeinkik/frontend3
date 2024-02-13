@@ -14,10 +14,17 @@
         header div.mobile-menu .burger-button .burger-bar {
             background-color: base.$darkmode-mid;
         }
+
+        header div.mobile-menu .burger-button:hover .burger-bar {
+            background-color: base.$darkmode-text;
+        }
+        header div.mobile-menu .burger-button.active:hover .burger-bar {
+            background-color: base.$darkmode-text;
+        }
         /* Ändra färg på länkarna i menyn samt indikeringen för hovring och statisk indikering på vart man befinner sig på sidan */
         header nav.desktop .desktop-menu-item a {
             color: base.$darkmode-mid;
-            @include base.transition;
+            @include base.transition(0.5s);
 
             &:hover {
                 color: base.$darkmode-text;
@@ -29,6 +36,17 @@
             &:after {
                 background-color: base.$darkmode-mid;
             }
+        }
+        div.horsetransition button {
+            background-color: base.$darkmode-mid;
+
+            &:hover {
+                background-color: darken(base.$darkmode-mid, 20%);
+            }
+        }
+        div.horsetransition svg {
+            stroke: base.$darkmode-text;
+            stroke-width: 0.2;
         }
     }
 
@@ -65,9 +83,10 @@
     }
 
     /* Ändra färgen på ikonerna, ge hovereffekt som är lite ljusare färg */
-    .icons .icon-container svg {
+    .icons .icon-container svg,
+    .wrapper.underpage div.horseanimation svg {
         fill: base.$darkmode-mid;
-        @include base.transition;
+        @include base.transition(0.5s);
 
         &:hover {
             fill: base.$darkmode-text;

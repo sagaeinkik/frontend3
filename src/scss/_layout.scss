@@ -1,4 +1,5 @@
 @use 'base';
+@use 'animations';
 
 /* Den här kanske man borde dela upp i flera partials istället */
 
@@ -27,7 +28,7 @@ header {
             width: 200px; /* Måste tydligen ha detta för Firefoxs skull */
             margin: 0.5em;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
     }
     /* DESKTOP-NAVIGERING */
@@ -41,7 +42,7 @@ header {
             justify-content: space-between;
             padding: 0.5em 1em 0.5em 0.5em;
             border-radius: 10px 0 0 10px;
-            @include base.transition();
+            @include base.transition(0.5s);
 
             &:hover {
                 /* Gör hover-effekt där menyraden får mörkare bakgrund */
@@ -69,7 +70,7 @@ header {
                 position: absolute;
                 bottom: 0;
                 left: 0;
-                @include base.transition();
+                @include base.transition(0.5s);
             }
             a:hover:after {
                 /* Visa strecket vid hover */
@@ -100,6 +101,10 @@ header {
             top: 1.5em;
             right: 2em;
             z-index: 2;
+
+            &:hover .burger-bar {
+                background-color: lighten(base.$lightmode-green, 10%);
+            }
         }
         .burger-bar {
             /* Själva brödet och köttet */
@@ -108,12 +113,15 @@ header {
             height: 3px;
             margin: 5px;
             background-color: black;
-            @include base.transition;
+            @include base.transition(0.5s);
         }
 
         /* AKTIV HAMBURGARE */
         .burger-button.active .burger-bar {
             background-color: base.$lightmode-green;
+        }
+        .burger-button.active:hover .burger-bar {
+            background-color: lighten(base.$lightmode-green, 10%);
         }
         /* Rotera första och tredje, dölj mittersta */
         .burger-button.active .burger-bar:first-child {
@@ -131,10 +139,11 @@ header {
             width: 100%;
             border-radius: 0 0 50% 50%;
             position: fixed;
+            z-index: 1;
             left: 0;
             top: -505%;
             background-color: base.$lightmode-background;
-            @include base.transition;
+            @include base.transition(0.5s);
 
             .mobile-menu-item {
                 font-family: base.$accentfont;
@@ -187,7 +196,7 @@ main {
         border-radius: 150px;
         @include base.center(true, false); //horizontal, vertical
         opacity: 0.8;
-        @include base.transition();
+        @include base.transition(0.5s);
 
         &:hover {
             border-radius: 50px;
@@ -208,6 +217,54 @@ main {
     h1 {
         /* Putta ner h1 så den kommer nedanför meny*/
         margin-top: 5em;
+    }
+
+    div.horseanimation svg {
+        width: 13%;
+        fill: base.$lightmode-green;
+        margin-top: 4em;
+        animation: horse 7s linear infinite;
+        position: relative;
+    }
+
+    div.fadein {
+        animation: fadeIn 4.5s, slideIn 1.8s;
+        position: relative;
+    }
+    div.horsetransition {
+        button {
+            padding: 1em;
+            margin-top: 1em;
+            border: none;
+            background-color: base.$lightmode-green;
+            color: white;
+            border-radius: 5px;
+            @include base.transition(1s);
+            @include base.center(true, false);
+            display: block;
+            cursor: pointer;
+
+            &:hover {
+                background-color: darken(base.$lightmode-green, 20%);
+            }
+        }
+        svg {
+            margin-top: 1em;
+            width: 20%;
+            @include base.transition(0.7s);
+            @include base.center(true, false);
+
+            &:hover {
+                fill: #ccc;
+                stroke: base.$lightmode-green;
+                stroke-width: 0.2;
+            }
+        }
+        svg.active {
+            stroke: none;
+            width: 30%;
+            fill: #6f1010;
+        }
     }
 }
 
@@ -235,7 +292,7 @@ main {
             fill: base.$lightmode-green;
             width: 30%;
             margin: auto;
-            @include base.transition;
+            @include base.transition(0.5s);
 
             &:hover {
                 /* Ljusa upp den när man hovrar */

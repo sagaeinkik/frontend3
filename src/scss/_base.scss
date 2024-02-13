@@ -36,8 +36,8 @@ $headingfont: 'DM Serif Display', Georgia, 'Times New Roman', serif;
 }
 
 /* Mixin för transition med vendor prefixes (jag tror inte man behöver det, men är osäker, så de får vara med ändå) */
-@mixin transition() {
-    transition: 0.5s ease;
-    -webkit-transition: 0.5s ease;
-    -moz-transition: 0.5s ease;
+@mixin transition($duration) {
+    transition: $duration ease;
+    -webkit-transition: $duration ease;
+    -moz-transition: $duration ease;
 }
