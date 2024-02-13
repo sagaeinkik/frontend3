@@ -218,10 +218,11 @@ main {
         /* Putta ner h1 så den kommer nedanför meny*/
         margin-top: 5em;
     }
-
+    /* ANIMERINGAR */
     div.horseanimation {
         width: 90%;
         svg {
+            /* Hästikonen */
             width: 13%;
             fill: base.$lightmode-green;
             margin-top: 4em;
@@ -231,6 +232,7 @@ main {
     }
 
     div.fadein {
+        /* Textanimationen */
         animation: fadeIn 4.5s, slideIn 1.8s;
         position: relative;
     }
@@ -248,16 +250,19 @@ main {
             cursor: pointer;
 
             &:hover {
+                /* hovereffekt på knappen */
                 background-color: darken(base.$lightmode-green, 20%);
             }
         }
         svg {
+            /* Andra hästikonen */
             margin-top: 1em;
             width: 20%;
             @include base.transition;
             @include base.center(true, false);
 
             &:hover {
+                /* Hovereffekt och stroke för att synas */
                 fill: #ccc;
                 stroke: base.$lightmode-green;
                 stroke-width: 0.2;

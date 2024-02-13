@@ -1,3 +1,4 @@
+/* Fade in för texten på animerings-sidan */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -7,6 +8,7 @@
     }
 }
 
+/* Glider in nerifrån */
 @keyframes slideIn {
     from {
         top: 100px;
@@ -16,11 +18,12 @@
     }
 }
 
+/* Gör så hästen skuttar litt */
 @keyframes horse {
     0% {
         left: 0;
         bottom: 0;
-        transform: scaleX(1);
+        transform: scaleX(1); /* Peka nosen åt höger först, som ska va */
     }
     5%,
     15%,
@@ -77,7 +80,7 @@
     50% {
         left: 100%;
         bottom: 0;
-        transform: scaleX(-1);
+        transform: scaleX(-1); /* Vänd häst */
     }
     55% {
         left: 100%;
@@ -95,6 +98,6 @@
     }
     100% {
         left: 0;
-        transform: scaleX(1);
+        transform: scaleX(1); /* Vänd tillbaka till höger */
     }
 }
