@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sass | Frontend</title>
+    <link rel="stylesheet" href="scss/main.scss">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inconsolata&family=Montserrat:wght@400;600&display=swap"
+        rel="stylesheet">
+    <!-- JS -->
+    <script src="js/burger.js" type="module"></script>
+    <script src="js/charts.js" type="module"></script>
+</head>
+
+<body>
+    <div class="wrapper underpage">
+        <header>
+            <div class="header-flex">
+                <!-- Logga baserat på färgpreferenser -->
+                <a href="index.html">
+                    <picture>
+                        <source media="(prefers-color-scheme: light)" srcset="images/logo/signature-black.svg"
+                            type="image/svg+xml">
+                        <source media="(prefers-color-scheme: dark)" srcset="images/logo/signature-light.svg"
+                            type="image/svg+xml">
+                        <img src="images/logo/signature-light.svg" alt="Logotyp" id="logotyp">
+                    </picture>
+                </a>
+                <!-- DATORNAVIGERING -->
+                <nav class="desktop">
+                    <ul>
+                        <li class="desktop-menu-item"><a href="index.html">Start</a></li>
+                        <li class="desktop-menu-item"><a href="sass.html">Sass</a></li>
+                        <li class="desktop-menu-item"><a href="animation.html">Animering</a></li>
+                        <li class="desktop-menu-item"><a href="diagram.html" aria-current="page">Diagram</a></li>
+                        <li class="desktop-menu-item"><a href="#">Karta</a></li>
+                    </ul>
+                </nav>
+                <!-- MOBILNAVIGERING -->
+                <div class="mobile-menu">
+                    <button class="burger-button" aria-label="menyknapp">
+                        <span class="burger-bar"></span>
+                        <span class="burger-bar"></span>
+                        <span class="burger-bar"></span>
+                    </button>
+                    <nav class="mobile-menu-items">
+                        <ul>
+                            <li class="mobile-menu-item"><a href="index.html">Start</a></li>
+                            <li class="mobile-menu-item"><a href="sass.html">Sass</a></li>
+                            <li class="mobile-menu-item"><a href="animation.html">Animering</a></li>
+                            <li class="mobile-menu-item"><a href="diagram.html" aria-current="page">Diagram</a></li>
+                            <li class="mobile-menu-item"><a href="#">Karta</a></li>
+                        </ul>
+                    </nav>
+                </div> <!-- Slut på mobile-menu -->
+            </div> <!-- Slut på header-flex -->
+        </header>
+        <main class="underpage-main">
+            <div class="text-content">
+                <h1>Diagram</h1>
+                <p class="no-top-margin">
+                    Diagram för mest sökta programmen.
+                </p>
+                <div class="diagram-container">
+                    <canvas id="barchart">
+                    </canvas>
+                </div>
+            </div>
+        </main>
+    </div> <!-- Slut på wrapper.underpage -->
+    <!-- Footer-border-bild -->
+    <picture>
+        <!-- Ljust tema -->
+        <source media="(prefers-color-scheme: light)" srcset="images/footerborder.png?as=avif&width=2000"
+            type="image/avif">
+        <source media="(prefers-color-scheme: light)" srcset="images/footerborder.png?as=webp&width=2000"
+            type="image/webp">
+        <source media="(prefers-color-scheme: light)" srcset="images/footerborder.png?as=png&width=2000"
+            type="image/png">
+        <!-- Mörkt tema -->
+        <source media="(prefers-color-scheme: dark)" srcset="images/footerborder-darkmode.png?as=avif&width=2000"
+            type="image/avif">
+        <source media="(prefers-color-scheme: dark)" srcset="images/footerborder-darkmode.png?as=webp&width=2000"
+            type="image/webp">
+        <source media="(prefers-color-scheme: dark)" srcset="images/footerborder-darkmode.png?as=png&width=2000"
+            type="image/png">
+        <img src="images/footerborder-darkmode.png" alt="" id="footerimg">
+    </picture>
+    <footer>
+        <p>Av Saga Einarsdotter Kikajon för kursen DT211G, Frontend-baserad Webbutveckling.</p>
+        <p>Bilder är tagna från <a href="https://www.pixabay.com" target="_blank">Pixabay</a>, ikoner från <a
+                href="https://www.reshot.com" target="_blank">Reshot</a> och <a href="https://www.svgrepo.com"
+                target="_blank">SVG Repo</a>.</p>
+        <img src="images/logo/signature-black.svg" alt="logotyp">
+    </footer>
+</body>
+
+</html>
