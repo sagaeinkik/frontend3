@@ -170,6 +170,10 @@
     .wrapper.underpage div.diagram-container {
         width: 100%;
     }
+
+    .wrapper.underpage div.diagram-container:last-child {
+        width: 100%;
+    }
     main blockquote {
         max-width: 100%;
         font-size: 1.5em;

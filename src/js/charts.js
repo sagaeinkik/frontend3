@@ -2,12 +2,14 @@
 
 import Chart from 'chart.js/auto';
 const errorMessage = document.querySelector('p.no-top-margin');
-const mediaQuery = window.matchMedia('(max-width: 700px)');
+const mediaQuery700 = window.matchMedia('(max-width: 700px)');
+const mediaQuery900 = window.matchMedia('(max-width: 900px');
 
 window.addEventListener('load', getData);
 
+/* Hämta hem alla kurser och program */
 async function getData() {
-    //Fetch-anrop för att hämta alla kurser och program
+    //Fetch-anrop
     try {
         const response = await fetch(
             'https://studenter.miun.se/~mallar/dt211g/'
@@ -43,6 +45,8 @@ async function getData() {
         errorMessage.innerHTML = 'Det gick inte att hämta data..';
     }
 }
+
+/* Funktion för att skapa stapeldiagram */
 
 function displayBarChart(courses) {
     const chartElement = document.getElementById('barchart');
@@ -101,16 +105,15 @@ function displayBarChart(courses) {
     });
 
     //Kontrollera maxbredd och ta bort labels om mindre än så
-    labelCheck(barChart);
-    mediaQuery.addEventListener('change', () => {
-        labelCheck(barChart);
+    hideLabels(barChart);
+    mediaQuery700.addEventListener('change', () => {
+        hideLabels(barChart);
     });
 }
 
-function labelCheck(barChart) {
-    const mediaQuery = window.matchMedia('(max-width: 700px)');
+function hideLabels(barChart) {
     // Kontrollera om mediefrågan matchar
-    if (mediaQuery.matches) {
+    if (mediaQuery700.matches) {
         // Dölj labels om mediefrågan matchar
         barChart.options.scales.x.ticks.display = false;
     } else {
@@ -122,6 +125,53 @@ function labelCheck(barChart) {
     barChart.update();
 }
 
-function displayPieChart(programs) {
-    console.log(programs);
+function displayPieChart(program) {
+    const pieChartEl = document.getElementById('piechart');
+
+    const pieChart = new Chart(pieChartEl, {
+        type: 'pie',
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                },
+            },
+            maintainAspectRatio: true,
+        },
+        data: {
+            labels: program.map((program) => program.name),
+            datasets: [
+                {
+                    label: 'Antal Sökande',
+                    data: program.map((prog) => prog.applicantsTotal),
+                    backgroundColor: [
+                        'palevioletred',
+                        'palegreen',
+                        'palegoldenrod',
+                        'paleturquoise',
+                        'skyblue',
+                        'pink',
+                    ],
+                },
+            ],
+        },
+    });
+    moveLabels(pieChart);
+    mediaQuery900.addEventListener('change', () => {
+        moveLabels(pieChart);
+    });
+}
+
+function moveLabels(pieChart) {
+    // Kontrollera om mediefrågan matchar
+    if (mediaQuery900.matches) {
+        // Dölj labels om mediefrågan matchar
+        pieChart.options.plugins.legend.position = 'bottom';
+    } else {
+        pieChart.options.plugins.legend.position = 'left';
+    }
+
+    // Uppdatera diagrammet för att applicera ändringarna
+    pieChart.update();
 }
