@@ -2,6 +2,7 @@
 
 import Chart from 'chart.js/auto';
 const errorMessage = document.querySelector('p.no-top-margin');
+const mediaQuery = window.matchMedia('(max-width: 700px)');
 
 window.addEventListener('load', getData);
 
@@ -36,28 +37,91 @@ async function getData() {
 
         //Kalla funktioner som skriver ut dessa till skärmen
         displayBarChart(courses);
-        /* displayPieChart(programs); */
+        displayPieChart(programs);
     } catch (error) {
         console.log(error);
         errorMessage.innerHTML = 'Det gick inte att hämta data..';
     }
 }
 
-async function displayBarChart(courses) {
-    console.log(courses);
+function displayBarChart(courses) {
+    const chartElement = document.getElementById('barchart');
+    //Dela upp kursnamnen i varsin array så de kan radbrytas
+    let courseNames = courses.map((course) => course.name.split(' '));
 
-    const chartElement = document.getElementById('barchart').getContext('2d');
-    const coursesChart = new Chart(chartElement, {
+    const barChart = new Chart(chartElement, {
         type: 'bar',
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    grid: {
+                        display: false,
+                    },
+                    ticks: {
+                        display: true,
+                    },
+                },
+                y: {
+                    grid: {
+                        display: false,
+                    },
+                },
+            },
+            plugins: {
+                legend: {
+                    display: false,
+                },
+                tooltip: {
+                    callbacks: {
+                        title: (context) => {
+                            return context[0].label.replaceAll(',', ' ');
+                        },
+                    },
+                },
+            },
+        },
         data: {
-            labels: courses.map((course) => course.name),
+            labels: courseNames,
             datasets: [
                 {
                     label: 'Antal Sökande',
                     data: courses.map((course) => course.applicantsTotal),
+                    backgroundColor: [
+                        'palevioletred',
+                        'palegreen',
+                        'palegoldenrod',
+                        'paleturquoise',
+                        'skyblue',
+                        'pink',
+                    ],
                 },
             ],
         },
-        options: {},
     });
+
+    //Kontrollera maxbredd och ta bort labels om mindre än så
+    labelCheck(barChart);
+    mediaQuery.addEventListener('change', () => {
+        labelCheck(barChart);
+    });
+}
+
+function labelCheck(barChart) {
+    const mediaQuery = window.matchMedia('(max-width: 700px)');
+    // Kontrollera om mediefrågan matchar
+    if (mediaQuery.matches) {
+        // Dölj labels om mediefrågan matchar
+        barChart.options.scales.x.ticks.display = false;
+    } else {
+        // Visa labels om mediefrågan inte matchar
+        barChart.options.scales.x.ticks.display = true;
+    }
+
+    // Uppdatera diagrammet för att applicera ändringarna
+    barChart.update();
+}
+
+function displayPieChart(programs) {
+    console.log(programs);
 }

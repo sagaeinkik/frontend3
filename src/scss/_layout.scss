@@ -275,7 +275,9 @@ main {
     }
     //diagram
     div.diagram-container {
-        width: 100%;
+        width: 90%;
+        min-height: 500px;
+        @include base.center(true, false);
     }
 }
 
