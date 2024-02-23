@@ -52,6 +52,7 @@ function displayBarChart(courses) {
     const barChart = new Chart(chartElement, {
         type: 'bar',
         options: {
+            /* events: [], */
             responsive: true,
             scales: {
                 x: {
@@ -88,12 +89,12 @@ function displayBarChart(courses) {
                     label: 'Antal Sökande',
                     data: courses.map((course) => course.applicantsTotal),
                     backgroundColor: [
-                        'palevioletred',
-                        'palegreen',
-                        'palegoldenrod',
-                        'paleturquoise',
-                        'skyblue',
-                        'pink',
+                        '#d4afb9',
+                        '#b6cfb6',
+                        '#c6def1',
+                        '#dbcdf0',
+                        '#f2c6de',
+                        '#f7d9c4',
                     ],
                 },
             ],
