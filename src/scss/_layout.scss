@@ -288,6 +288,8 @@ main {
         height: 60vh;
         min-height: 150px;
         border-radius: 15px;
+        position: relative;
+        z-index: 0;
         /* Ta bort border radius på bilder för det stör kartans tiles */
         img {
             border-radius: 0;
