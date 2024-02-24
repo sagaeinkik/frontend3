@@ -174,7 +174,7 @@
     .wrapper.underpage div.diagram-container:last-child {
         width: 100%;
     }
-
+    /* Gör kartan mindre vid mobillägen */
     .wrapper.underpage div#map {
         max-height: 350px;
     }
