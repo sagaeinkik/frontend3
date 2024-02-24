@@ -14,7 +14,7 @@
         rel="stylesheet">
     <!-- JS -->
     <script src="js/burger.js" type="module"></script>
-    <script src="js/charts.js" type="module"></script>
+    <script src="js/maps.js" type="module"></script>
 </head>
 
 <body>
@@ -37,8 +37,8 @@
                         <li class="desktop-menu-item"><a href="index.html">Start</a></li>
                         <li class="desktop-menu-item"><a href="sass.html">Sass</a></li>
                         <li class="desktop-menu-item"><a href="animation.html">Animering</a></li>
-                        <li class="desktop-menu-item"><a href="diagram.html" aria-current="page">Diagram</a></li>
-                        <li class="desktop-menu-item"><a href="karta.html">Karta</a></li>
+                        <li class="desktop-menu-item"><a href="diagram.html">Diagram</a></li>
+                        <li class="desktop-menu-item"><a href="karta.html" aria-current="page">Karta</a></li>
                     </ul>
                 </nav>
                 <!-- MOBILNAVIGERING -->
@@ -53,8 +53,8 @@
                             <li class="mobile-menu-item"><a href="index.html">Start</a></li>
                             <li class="mobile-menu-item"><a href="sass.html">Sass</a></li>
                             <li class="mobile-menu-item"><a href="animation.html">Animering</a></li>
-                            <li class="mobile-menu-item"><a href="diagram.html" aria-current="page">Diagram</a></li>
-                            <li class="mobile-menu-item"><a href="karta.html">Karta</a></li>
+                            <li class="mobile-menu-item"><a href="diagram.html">Diagram</a></li>
+                            <li class="mobile-menu-item"><a href="karta.html" aria-current="page">Karta</a></li>
                         </ul>
                     </nav>
                 </div> <!-- Slut på mobile-menu -->
@@ -62,26 +62,10 @@
         </header>
         <main class="underpage-main">
             <div class="text-content">
-                <h1>Diagram</h1>
-                <p class="no-top-margin">
-                    Mest sökta kurser på Mittuniversitetet HT2023 (tryck på staplarna i mobilläge för att se kursnamn)
-                </p>
+                <h1>Karta</h1>
             </div>
-            <div class="diagram-container">
-                <canvas id="barchart">
-                </canvas>
-            </div>
-            <div class="text-content">
-                <p>Mest sökta program på Mittuniversitetet HT2023:</p>
-            </div>
-            <div class="diagram-container">
-                <canvas id="piechart">
-
-                </canvas>
-            </div>
-            <div class="text-content">
-                <p>Jag får inte riktigt till radbrytning på labeln när man är nere på ca 320px bredd..</p>
-            </div>
+            <!-- Peta in kartan här -->
+            <div id="map"></div>
         </main>
     </div> <!-- Slut på wrapper.underpage -->
     <!-- Footer-border-bild -->
@@ -109,6 +93,7 @@
                 target="_blank">SVG Repo</a>.</p>
         <img src="images/logo/signature-black.svg" alt="logotyp">
     </footer>
+    <script src="js/maps.js" type="module"></script>
 </body>
 
 </html>

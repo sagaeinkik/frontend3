@@ -281,6 +281,18 @@ main {
     div.diagram-container:last-child {
         width: 70%;
     }
+    /* Karta.htmls karta, ge höjd och bredd */
+    div#map {
+        width: 80%;
+        margin: auto;
+        height: 60vh;
+        min-height: 150px;
+        border-radius: 15px;
+        /* Ta bort border radius på bilder för det stör kartans tiles */
+        img {
+            border-radius: 0;
+        }
+    }
 }
 
 /* IKONER på landing page */
