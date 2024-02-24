@@ -281,6 +281,17 @@ main {
     div.diagram-container:last-child {
         width: 70%;
     }
+
+    div#map {
+        width: 80%;
+        margin: auto;
+        height: 60vh;
+        min-height: 150px;
+
+        img {
+            border-radius: 0;
+        }
+    }
 }
 
 /* IKONER på landing page */
