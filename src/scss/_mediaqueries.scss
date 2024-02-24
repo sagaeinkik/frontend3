@@ -177,6 +177,7 @@
     /* Gör kartan mindre vid mobillägen */
     .wrapper.underpage div#map {
         max-height: 350px;
+        width: 95%;
     }
     main blockquote {
         max-width: 100%;
