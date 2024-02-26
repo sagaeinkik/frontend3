@@ -281,6 +281,56 @@ main {
     div.diagram-container:last-child {
         width: 70%;
     }
+    /* Sökfunktionen */
+    div.search {
+        width: 70%;
+        margin: 1em auto;
+
+        label[for='search'] {
+            display: block;
+        }
+        input[type='search'] {
+            width: 80%;
+            padding: 0.5em;
+            border-radius: 12px;
+            font-family: base.$breadfont;
+            border-width: 1px;
+            border-color: base.$lightmode-green;
+        }
+        button {
+            padding: 0.5em;
+            font-family: base.$breadfont;
+            border-radius: 10px;
+            background-color: base.$lightmode-green;
+            border: none;
+            color: white;
+            cursor: pointer;
+            @include base.transition;
+
+            &:hover {
+                background-color: lighten(base.$lightmode-green, 10%);
+            }
+        }
+    }
+    /* Sökresultaten */
+    div.searchresults {
+        width: 70%;
+        margin: 1em auto;
+        max-height: 210px;
+        overflow-y: scroll;
+
+        ul li {
+            list-style: none;
+            border-bottom: 1px solid base.$lightmode-green;
+            padding: 0.5em;
+            cursor: pointer;
+
+            &:hover {
+                background-color: lighten(base.$lightmode-green, 10%);
+                color: white;
+            }
+        }
+    }
     /* Karta.htmls karta, ge höjd och bredd */
     div#map {
         width: 80%;

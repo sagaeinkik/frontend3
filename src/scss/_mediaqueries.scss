@@ -49,6 +49,23 @@
             stroke: base.$darkmode-text;
             stroke-width: 0.2;
         }
+        /* Ändra färger på sökknapp, resultat och ge hovereffekt */
+        div.search button {
+            background-color: base.$darkmode-mid;
+
+            &:hover {
+                background-color: base.$darkmode-text;
+                color: base.$darkmode-background;
+            }
+        }
+        div.searchresults ul li {
+            list-style: none;
+            border-bottom: 1px solid base.$darkmode-mid;
+
+            &:hover {
+                background-color: base.$darkmode-mid;
+            }
+        }
     }
 
     /* Gör lite hovereffekt på hamburgaren på landing page  */
@@ -179,6 +196,16 @@
         max-height: 350px;
         width: 95%;
     }
+    /* Bredda behållarna för sökfunktion och resultat, gör mindre text */
+    .wrapper.underpage div.search {
+        width: 90%;
+    }
+    .wrapper.underpage div.searchresults {
+        width: 90%;
+        font-size: 0.75em;
+        max-height: 110px;
+    }
+
     main blockquote {
         max-width: 100%;
         font-size: 1.5em;
@@ -195,5 +222,15 @@
     }
     .icons .icon-container p {
         max-width: 100%;
+    }
+    /* Bredda sökning ännu lite till */
+    .wrapper.underpage div.search {
+        width: 100%;
+        input[type='search'] {
+            width: 70%;
+        }
+    }
+    .wrapper.underpage div.searchresults {
+        width: 100%;
     }
 }
