@@ -296,6 +296,7 @@ main {
             font-family: base.$breadfont;
             border-width: 1px;
             border-color: base.$lightmode-green;
+            font-size: 0.9em;
         }
         button {
             padding: 0.5em;
@@ -306,6 +307,7 @@ main {
             color: white;
             cursor: pointer;
             @include base.transition;
+            font-size: 0.9em;
 
             &:hover {
                 background-color: lighten(base.$lightmode-green, 10%);
