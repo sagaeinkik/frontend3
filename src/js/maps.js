@@ -60,6 +60,7 @@ async function searchLocation() {
         displayResults(data);
     } catch (error) {
         console.error('Fel: ' + error);
+        searchResults.innerHTML = 'Något verkar ha gått fel';
     }
 }
 
@@ -67,7 +68,7 @@ async function searchLocation() {
 function displayResults(data) {
     searchResults.innerHTML = '';
     /* kontroll om sökning lyckades */
-    if (data) {
+    if (data.length > 0) {
         // forEach som skapar nytt li-element för varje resultat
         data.forEach((result) => {
             const listItem = document.createElement('li');
@@ -87,6 +88,8 @@ function displayResults(data) {
                 moveMap(lat, long);
             });
         });
+    } else {
+        searchResults.innerHTML = 'Inga resultat matchade din sökning...';
     }
 }
 
